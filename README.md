@@ -1,5 +1,7 @@
 ## Score app
 
+Sample score app made with [NestJS](https://nestjs.com/), [Socket.IO](https://socket.io/) and [React](https://reactjs.org/)
+
 ### Run the app
 
 ```bash
