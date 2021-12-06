@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14.1-alpine
+    environment:
+      - POSTGRES_PASSWORD=sample
+      - POSTGRES_DB=soccer
+      - POSTGRES_USER=soccer
+    ports:
+      - 5432:5432
+  api:
+    build: ../soccer-api
+    environment:
+      - STAGE=prod
+      - DB_USERNAME=soccer
+      - DB_PASSWORD=sample
+      - DB_NAME=soccer
+      - DB_PORT=5432
+      - DB_HOSTNAME=db
+      - JWT_SECRET=Sample123
+    links:
+      - db
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+  app:
+    build: ../score-board
+    ports:
+      - 8080:80
+    links:
+      - api
+    depends_on:
+      - api
