@@ -19,3 +19,4 @@ Just go to [here](http://localhost:3000/api) to play with the API
 
 - Create an admin dashboard to manage matches, score and comments
 - Create a microservice for the socket
+- Use rooms to listen events per match
